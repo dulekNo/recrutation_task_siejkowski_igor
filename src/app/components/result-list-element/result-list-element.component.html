@@ -1,0 +1,51 @@
+<div class="wrapper" [ngClass]="{expandedBoxWrapper: readyToPlay}">
+  <div class="expandedBoxDisplayNone" [ngClass]="{expandedBoxInnerWrapper: readyToPlay }" (click)="expandBox()">
+    <div style="position:relative">
+      <div class="close"></div>
+    </div>
+  </div>
+  <div class="splash" [ngClass]="{expandedBoxDisplayNone: readyToPlay}">
+    <img src="../../../assets/Licon2.png" alt={{videoElement.title}} />
+    <div class="overlay" (click)="expandBox()"></div>
+  </div>
+  <div class="playButton" [ngClass]="{expandedBoxDisplayNone: readyToPlay}">
+    <img (click)="expandBox()" src="../../../assets/playButton.png" alt="play" />
+  </div>
+  <div class="details" [ngClass]="{expandedBoxDescription: readyToPlay}">
+    <div *ngIf="videoElement.title; else noTitle">
+      <div class="title" (click)="expandBox()">{{videoElement.title}}</div>
+    </div>
+    <ng-template #noTitle>
+      <div class="title" (click)="expandBox()">------</div>
+    </ng-template>
+    <div *ngIf="videoElement.description; else noDescription" [ngClass]="{expandedBoxDisplayNone: readyToPlay}">
+      <div class="description">{{videoElement.description}}</div>
+    </div>
+    <ng-template #noDescription>
+      <div class="description">------</div>
+    </ng-template>
+  </div>
+  <div class="expandedBoxDisplayNone" [ngClass]="{expandedBoxInnerWrapper: readyToPlay }">
+    <div *ngIf="videoElement.url; else noVideo">
+      <video *ngIf="videoElement.url; else noVideo" class="player" #vid src={{videoElement.url}}
+        poster="../../../assets/Licon2.png"></video>
+      <div class="controls">
+        <button class="button" [ngClass]="{paused: playing}" (click)="play()"></button>
+        <div class="speedUp speedUpPosition" (click)="speedUp()"></div>
+        <div class="currentSpeed">{{currentSpeed}}</div>
+        <div class="slowDown" (click)="slowDown()">
+          <div class="hor position"></div>
+        </div>
+        <div class="frameBox">
+          <div class="speedUp positionFrameAhead" (click)="oneFrameAhead()"></div>
+          <div class="slowDown" (click)="oneFrameBack()">
+              <div class="hor position positionFrameBack"></div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #noVideo>
+      <div class="player">------</div>
+    </ng-template>
+  </div>
+</div>

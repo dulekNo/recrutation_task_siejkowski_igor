@@ -1,0 +1,23 @@
+input {
+  display: flex;
+  width: 450px;
+  min-height: 40px;
+  border: 0;
+  border-bottom: 1px solid black;
+  background: none;
+  font-weight: 300;
+  color: black;
+  text-align: center;
+  font-size: 24px;
+  transition: box-shadow 0.5s ease-out;
+  padding: 0;
+
+  @media (min-width: 1024px) {
+    font-weight: 400;
+  }
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 14px 10px -9px black;
+}

@@ -1,0 +1,4 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div [@searchingBackground]="isOpen ? 'open' : 'closed'" class="lindseyImage"></div>
+<search-input (searchValue)=handler($event) [@searchingInput]="isOpen ? 'open' : 'closed'"> </search-input>
+<result-list *ngIf="!isOpen" [resultListInput]="resultList"></result-list>

@@ -1,0 +1,34 @@
+.lindseyImage {
+  background-image: url("../assets/L4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 40% 0%;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  @media(min-width: 768px) {
+    background-position: 50% 0%;
+  }
+
+}
+
+search-input {
+  height: auto;
+  width: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+result-list {
+  margin-top: 150px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
